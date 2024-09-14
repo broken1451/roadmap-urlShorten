@@ -1,0 +1,12 @@
+version: "3"
+services:
+  db:
+    container_name: short-url-db
+    restart: always # Reiniciar el contenedor si se detiene
+    image: mongo:6.0
+    volumes:
+      - ./mongo:/data/db
+    ports:
+      - 27017:27017
+    environment:
+      MONGODB_DATABASE: ${MONGODB_DATABASE}
